@@ -1,0 +1,71 @@
+{
+  "name": "com.geodb.9worlds.card.minigame.contracts",
+  "version": "1.0.0",
+  "description": "com.geodb.eth.contracts.template",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate --network development",
+    "gancahe": "ganache-cli --network development",
+    "remix": "remix-ide",
+    "coverage": "truffle run coverage --network development",
+    "ganache:bsc": "ganache-cli --fork http://198.244.164.108:8545 -u \"0x27158157136384c713bc09a0a7ae81c8391d7f11\"  -u \"0x77c8e7c357afd2f76232b765e6373eea63b3cf64\" -a 100 -e 900000000000000000",
+    "ganache:polygon": "ganache-cli --fork https://matic-mainnet.chainstacklabs.com -u \"0xb7a298189b2c8b703f34cad886e915008c2db738\"  -u \"0xf977814e90da44bfa03b6295a0616a897441acec\" -a 100 -e 900000000000000000",
+    "wait:ganache": "wait-on -r http://localhost:8545",
+    "test:bsc": "concurrently -ks first \"yarn wait:ganache && yarn test\" \"yarn ganache:bsc\"",
+    "flat:nineWorlds": "truffle-flattener ./contracts/NineWorldsMulti.sol > flat/FlattenedNineWorldsMulti.sol",
+    "flat:vikings": "truffle-flattener ./contracts/Vikings.sol > flat/FlattenedVikings.sol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeoDB-Limited/com.geodb.9worlds.card.minigame.contracts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeoDB-Limited/com.geodb.9worlds.card.minigame.contracts/issues"
+  },
+  "homepage": "https://github.com/GeoDB-Limited/com.geodb.9worlds.card.minigame.contracts#readme",
+  "dependencies": {
+    "@chainlink/contracts": "^0.2.2",
+    "@opengsn/gsn": "^2.0.0-beta.1.3",
+    "@openzeppelin/contracts": "^4.4.0",
+    "@openzeppelin/network": "^0.4.1",
+    "@openzeppelin/test-helpers": "^0.5.3",
+    "@openzeppelin/upgrades": "^2.7.1",
+    "@uniswap/lib": "^2.1.0",
+    "chai": "^4.2.0",
+    "concurrently": "^6.2.1",
+    "csvtojson": "^2.0.10",
+    "fs-extra": "^8.1.0",
+    "ganache": "^7.0.2",
+    "ganache-cli": "^6.12.0",
+    "gulp": "^4.0.2",
+    "gulp-watch": "^5.0.1",
+    "truffle": "^5.5.2",
+    "truffle-abi": "^1.0.3",
+    "truffle-cost": "^1.0.1",
+    "truffle-flattener": "^1.5.0",
+    "truffle-plugin-verify": "^0.3.6",
+    "wait-on": "^6.0.0",
+    "web3": "1.3.0",
+    "web3-utils": "^1.2.2"
+  },
+  "devDependencies": {
+    "@ensdomains/ens": "^0.4.4",
+    "@ensdomains/resolver": "^0.2.4",
+    "@truffle/hdwallet-provider": "^1.0.38",
+    "cbor": "^7.0.2",
+    "eth-ens-namehash": "^2.0.8",
+    "ethers": "^4.0.46",
+    "inquirer": "^7.1.0",
+    "moment": "^2.24.0",
+    "ololog": "^1.1.156",
+    "sol-merger": "^2.0.1",
+    "solidity-coverage": "^0.7.17"
+  }
+}
